@@ -1,0 +1,45 @@
+{
+  "name": "playpro",
+  "version": "1.0.0",
+  "description": "A complete sports items shop",
+  "main": "./dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "tsnd --respawn ./src/server.ts",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint src --fix"
+  },
+  "keywords": [
+    "sports",
+    "gear",
+    "football",
+    "baseball",
+    "jerseys",
+    "shirts",
+    "boots",
+    "shoes"
+  ],
+  "author": "Kazi Md Mehedi Hasan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-status": "^1.7.4",
+    "mongoose": "^8.5.0",
+    "stripe": "^16.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "@types/cors": "^2.8.17",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0"
+  }
+}
