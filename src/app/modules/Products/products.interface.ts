@@ -1,6 +1,6 @@
 export interface TProduct {
     name: string;
-    category: string[];
+    category: string;
     stockQuantity: number;
     brand: string;
     description?: string;

@@ -6,12 +6,16 @@ const ProductSchema = new Schema<TProduct>({
         type: "string",
         required: true,
     },
-    category: [
-        {
-            type: String, //^ this must be written like this. Using "string" instead of String throws type error.
-            required: true,
-        }
-    ],
+    // category: [
+    //     {
+    //         type: String, //^ this must be written like this. Using "string" instead of String throws type error.
+    //         required: true,
+    //     }
+    // ],
+    category: {
+        type: "string",
+        required: true,
+    },
     stockQuantity: {
         type: "number",
         required: true,

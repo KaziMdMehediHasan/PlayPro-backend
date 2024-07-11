@@ -6,8 +6,18 @@ const uploadProductsToDB = async (payload: TProduct) => {
     return result;
 }
 
-const getAllProductsFromDB = async () => {
-    const result = await Products.find();
+const getAllProductsFromDB = async (query: Record<string, unknown>) => {
+    //{email: {$regex: query.name, $options:i}}
+    let searchTerm = '';
+    const searchableFields: string[] = ['name', 'description', 'productDescription'];
+    if (query?.searchTerm) {
+        searchTerm = query?.searchTerm as string;
+    }
+    const result = await Products.find({
+        $or: searchableFields.map((field) => ({
+            [field]: { $regex: searchTerm, $options: 'i' }
+        }))
+    });
     return result;
 }
 

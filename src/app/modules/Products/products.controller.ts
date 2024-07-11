@@ -14,8 +14,9 @@ const uploadProduct = async (req: Request, res: Response, next: NextFunction) =>
 }
 
 const getAllProducts = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.query);
     try {
-        const result = await ProductServices.getAllProductsFromDB();
+        const result = await ProductServices.getAllProductsFromDB(req.query);
         sendResponse(result, res, 'Products fetched successfully');
     } catch (error) {
         next(error);

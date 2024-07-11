@@ -5,10 +5,14 @@ const ProductValidationSchema = z.object({
         required_error: "Name is required",
         invalid_type_error: "Name must be a string",
     }),
-    category: z.array(z.string({
+    // category: z.array(z.string({
+    //     required_error: "Category is required",
+    //     invalid_type_error: "Category must be an array of string",
+    // })),
+    category: z.string({
         required_error: "Category is required",
-        invalid_type_error: "Category must be an array of string",
-    })),
+        invalid_type_error: "Category must be a string",
+    }),
     stockQuantity: z.number({
         required_error: "Quantity is required",
         invalid_type_error: "Quantity must be a number",
