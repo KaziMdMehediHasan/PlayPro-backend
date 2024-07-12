@@ -14,7 +14,7 @@ const uploadProduct = async (req: Request, res: Response, next: NextFunction) =>
 }
 
 const getAllProducts = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.query);
+    // console.log(req.query);
     try {
         const result = await ProductServices.getAllProductsFromDB(req.query);
         sendResponse(result, res, 'Products fetched successfully');
@@ -46,6 +46,6 @@ export const ProductControllers = {
     uploadProduct,
     getAllProducts,
     getSingleProduct,
-    deleteProduct
+    deleteProduct,
 }
 
