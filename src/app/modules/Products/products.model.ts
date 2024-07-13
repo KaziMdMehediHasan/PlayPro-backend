@@ -48,6 +48,6 @@ const ProductSchema = new Schema<TProduct>({
         type: "boolean",
         default: true
     }
-}, { versionKey: false })
+}, { timestamps: true, versionKey: false })
 
 export const Products = mongoose.model<TProduct>('Products', ProductSchema)

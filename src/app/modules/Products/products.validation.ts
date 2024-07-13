@@ -36,7 +36,7 @@ const ProductValidationSchema = z.object({
 
 const UpdateProductValidationSchema = z.object({
     name: z.string({}).optional(),
-    category: z.array(z.string({})).optional(),
+    category: z.string({}).optional(),
     stockQuantity: z.number({}).min(1).optional(),
     brand: z.string({}).optional(),
     description: z.string().optional(),
@@ -45,7 +45,7 @@ const UpdateProductValidationSchema = z.object({
     image: z.string().optional(),
     rating: z.number().optional(),
     inStock: z.boolean().optional(),
-}).optional();
+});
 
 export const ProductValidation = {
     ProductValidationSchema,

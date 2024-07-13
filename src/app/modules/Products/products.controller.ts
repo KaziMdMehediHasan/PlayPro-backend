@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ProductServices } from "./products.service";
 import { ProductValidation } from "./products.validation";
 import sendResponse from "../../utils/SendResponse";
+import { TProduct } from "./products.interface";
 
 const uploadProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -32,6 +33,16 @@ const getSingleProduct = async (req: Request, res: Response, next: NextFunction)
     }
 }
 
+const updateProduct = async (req: Request, res: Response, next: NextFunction) => {
+    const validatedProductUpdateData = ProductValidation.UpdateProductValidationSchema.parse(req.body);
+    try {
+        const result = await ProductServices.updateProductToDB(req.params.productId, validatedProductUpdateData as Partial<TProduct>);
+        sendResponse(result, res, 'Product updated successfully')
+    } catch (error) {
+        next(error);
+    }
+}
+
 const deleteProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const result = await ProductServices.deleteProductFromDB(req.params.productId);
@@ -47,5 +58,6 @@ export const ProductControllers = {
     getAllProducts,
     getSingleProduct,
     deleteProduct,
+    updateProduct
 }
 
